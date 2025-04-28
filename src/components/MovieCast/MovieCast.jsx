@@ -26,7 +26,7 @@ const MovieCast = () => {
     return (
     <ul className={s.list}>
             {cast.map((actor) => (
-                <li key={actor.cast_id} style={{ marginBottom: "10px" }} >
+                <li key={actor.cast_id} className={s.item}>
                     {actor.profile_path && (
                         <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name}
                         style={{width:"100px", borderRadius:"10px"}}/>

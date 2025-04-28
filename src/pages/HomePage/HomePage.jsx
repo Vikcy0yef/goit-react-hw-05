@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import  {getTrendingMovies}  from "../../services/api";
-import { Link } from 'react-router-dom';
-import s from "./HomePage.module.css"
+import MovieList from '../../components/MovieList/MovieList';
+import { useLocation } from 'react-router-dom';
+
+
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
     
+const location =useLocation()
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -27,20 +31,9 @@ const HomePage = () => {
    
   
   return (
-     <div className={s.wrapper}>
-      <h1 className={s.title}>Trending Movies</h1>
-      <div className={s.grid}>
-        {movies.map((movie) => (
-          <Link key={movie.id} to={`/movies/${movie.id}`} className={s.movieCard}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              className={s.poster}
-            />
-            <h3 className={s.movieTitle}>{movie.title}</h3>
-          </Link>
-        ))}
-      </div>
+     <div >
+      <h1 >Trending Movies</h1>
+    <MovieList movies={movies} location={location} />
     </div>
   );
 }

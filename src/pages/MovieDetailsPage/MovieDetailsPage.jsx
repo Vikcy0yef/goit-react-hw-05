@@ -43,7 +43,7 @@ const MovieDetailsPage = () => {
             </div>
             <hr />
             <h3>Additional Information</h3>
-            <ul>
+            <ul style={{listStyleType: "none"}}>
                 <li>
                     <Link to="cast" state={{ from: backLink }}>Cast</Link>
                 </li>
