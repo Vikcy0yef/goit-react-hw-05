@@ -5,7 +5,7 @@ import s from "./MovieList.module.css"
 const MovieList = ({movies}) => {
     const location = useLocation();
 
-    if (!MovieList.length) {
+    if (!movies.length) {
         return <p>No movies found.</p>
     }
 
